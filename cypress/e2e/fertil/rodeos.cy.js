@@ -1,6 +1,6 @@
 import fertil from '../../fixtures/fertil.json'
 
-describe('ingresar fertil', () => {
+describe('rodeos', () => {
     beforeEach(() => {
         cy.viewport(1536, 960)
         cy.visit("https://test.crecientefertil.com.ar/");

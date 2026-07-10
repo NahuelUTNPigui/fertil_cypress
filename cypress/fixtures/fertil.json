@@ -8,5 +8,14 @@
     "rodeonuevo":{
         "nombre":"rodeonuevo",
         "nombrenuevo":"rodeonuevo2"
+    },
+    "animalnuevo":{
+        "caravana":"rodeonuevo",
+        "caravananuevo":"rodeonuevo2"
+    },
+    "observacionnuevo":{
+        "caravana":"zh",
+        "observacion":"observacionnuevo",
+        "observacionnuevo":"observacionnuevo2"
     }
 }
