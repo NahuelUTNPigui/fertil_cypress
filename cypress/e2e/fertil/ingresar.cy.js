@@ -1,7 +1,11 @@
 import fertil from '../../fixtures/fertil.json'
 describe('ingresar fertil', () => {
-    it("ingresa",()=>{
+    beforeEach(() => {
+
         cy.viewport(1536, 960)
+    })
+    it("ingresa",()=>{
+        
         cy.visit("https://test.crecientefertil.com.ar/");
         cy.get('.mt-5').click()
         

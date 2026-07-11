@@ -10,8 +10,8 @@
         "nombrenuevo":"rodeonuevo2"
     },
     "animalnuevo":{
-        "caravana":"rodeonuevo",
-        "caravananuevo":"rodeonuevo2"
+        "caravana":"anuevo",
+        "caravananuevo":"anuevo2"
     },
     "observacionnuevo":{
         "caravana":"zh",

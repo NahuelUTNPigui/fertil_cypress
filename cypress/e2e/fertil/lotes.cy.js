@@ -21,6 +21,7 @@ describe('lotes', () => {
         cy.get("#nombre").type(fertil.lotenuevo.nombre);
         cy.contains('Guardar nuevo').click()
         cy.contains('OK').click()
+        cy.wait(1000)
         //El lote "lotenuevo" aparece en la tabla con TOTAL = 0
         cy.contains('td', fertil.lotenuevo.nombre).should('be.visible')
         cy.wait(2000)
