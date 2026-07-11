@@ -13,8 +13,30 @@
         "caravana":"anuevo",
         "caravananuevo":"anuevo2"
     },
+    "nacimientonuevo":{
+        "caravana":"anuevo",
+        "madre":"zh",
+        "observacion":"observacionnuevo",
+        "observacionnuevo":"observacionnuevo2"
+    },
     "observacionnuevo":{
         "caravana":"zh",
+        "observacion":"observacionnuevo",
+        "observacionnuevo":"observacionnuevo2"
+    },
+    "pesajenuevo":{
+        "peso":"100",
+        "pesonuevo":"200"
+    },
+    "servicionuevo":{
+        "observacion":"observacionnuevo",
+        "observacionnuevo":"observacionnuevo2"
+    },
+    "tactonuevo":{
+        "observacion":"observacionnuevo",
+        "observacionnuevo":"observacionnuevo2"
+    },
+    "tratamientonuevo":{
         "observacion":"observacionnuevo",
         "observacionnuevo":"observacionnuevo2"
     }

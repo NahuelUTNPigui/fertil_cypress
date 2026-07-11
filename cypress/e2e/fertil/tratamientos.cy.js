@@ -1,0 +1,74 @@
+import fertil from '../../fixtures/fertil.json'
+describe('tratamientos', () => {
+    beforeEach("ingresa", () => {
+        cy.viewport(1536, 960)
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('.mt-5').click()
+
+        cy.get('#username').type(fertil.fertilname)
+        cy.get('#password').type(fertil.fertilpas)
+        cy.contains('Ingresar').click()
+        cy.wait(4000)
+        //cy.get('.scrollbar-thin > .overflow-y-auto > :nth-child(8) > .flex')
+        cy.get('a').contains('Tratamientos').click()
+        cy.wait(1000)
+    })
+    it("nuevo tratamiento", () => {
+        cy.contains('+ Nuevo tratamiento').click()
+        cy.wait(2000)
+
+        cy.get('[name="observacion"]').eq(0).type(fertil.tratamientonuevo.observacion)
+        cy.contains('button', 'Todos').click()
+        // 2. Esperar a que aparezca la lista desplegable (ul)
+        cy.get('ul.max-h-40').should('be.visible')
+
+        // 3. Seleccionar la PRIMERA opción disponible (excluyendo "+ Nuevo tipo")
+        cy.get('ul.max-h-40 li button')
+            .first() // La primera opción real de la lista
+            .click()
+        cy.get('tbody tr').first().find('label').click()
+        cy.get('div.border-t.border-cf-border')
+            .contains('button', 'Siguiente')
+            .click()
+        cy.get('.bg-cf-primary')
+            .contains('button', 'Crear tratamiento')
+            .click()
+        cy.wait(1000)
+        cy.get('.swal2-confirm').click()
+        cy.wait(2000)
+    })
+    it("editar tratamiento", () => {
+        cy.get('tbody tr').first().within(() => {
+            // Busca todos los botones en la última celda (acciones)
+            cy.get('td:last-child button')
+                .eq(1) // El índice 1 es el segundo botón = Pencil
+                .click()
+        })
+        cy.wait(1000)
+        cy.get('[name="observacion"]').eq(0).clear()
+        cy.get('[name="observacion"]').eq(0).type(fertil.tratamientonuevo.observacionnuevo)
+        cy.get('div.border-t.border-cf-border')
+            .contains('button', 'Siguiente')
+            .click()
+        cy.get('.bg-cf-primary')
+            .contains('button', 'Actualizar tratamiento')
+            .click()
+        cy.get('.swal2-confirm').click()
+
+        cy.wait(1000)
+
+    })
+    it("eliminar tratamiento", () => {
+        cy.get('tbody tr').first().within(() => {
+            // Busca todos los botones en la última celda (acciones)
+            cy.get('td:last-child button')
+                .eq(2)
+                .click()
+        })
+        cy.wait(1000)
+        cy.get('.swal2-confirm').click()
+        cy.wait(1000)
+        cy.get('.swal2-confirm').click()
+        cy.wait(1000)
+    })
+})
