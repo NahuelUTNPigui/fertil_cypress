@@ -1,9 +1,7 @@
 import fertil from '../../fixtures/fertil.json'
 
-describe('lotes', () => {
-    
+describe('rodeos', () => {
     beforeEach(() => {
-        
         cy.viewport(1536, 960)
         cy.visit("https://test.crecientefertil.com.ar/");
         cy.get('.mt-5').click()
@@ -12,27 +10,22 @@ describe('lotes', () => {
         cy.get('#password').type(fertil.fertilpas)
         cy.contains('Ingresar').click()
         cy.wait(1000)
-        cy.contains('Lotes').click()
-        
+        cy.contains('Rodeos').click()
     })
-    //este es un test para agregar lotes si no tenes ninguno, util para hacer pruebas de corrido
-    it.skip("nuevo lote",()=>{
+    it("nuevo rodeo",()=>{
         cy.intercept('*').as('online') 
-
-        cy.contains('+ Nuevo lote').click()
+        cy.contains('+ Nuevo rodeo').click()
         cy.wait(1000)
         cy.contains('Volver').click()
-        cy.contains('+ Nuevo lote').click()
-        cy.get("#nombre").type(fertil.loteoff.nombre);
+        cy.contains('+ Nuevo rodeo').click()
+        cy.get("#nombre").type(fertil.rodeooff.nombre);
         cy.contains('Guardar nuevo').click()
         cy.contains('OK').click()
-        cy.wait(1000)
-        //El lote "lotenuevo" aparece en la tabla con TOTAL = 0
-        cy.contains('td', fertil.loteoff.nombre).should('be.visible')
+        //El rodeo "rodeooff" aparece en la tabla con TOTAL = 0
+        cy.contains('td', fertil.rodeooff.nombre).should('be.visible')
         cy.wait(2000)
-        
     })
-    it.skip("editar lote",()=>{
+    it("editar rodeo",()=>{
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.get('tbody tr').first().find('td:nth-child(4)')
@@ -41,18 +34,18 @@ describe('lotes', () => {
             cy.get('button').eq(1).click()
             
         })
+        cy.wait(2000)
         cy.get("#nombre").clear();
-        cy.get("#nombre").type(fertil.lotenuevo.nombrenuevo);
-        
+        cy.get("#nombre").type(fertil.rodeonuevo.nombrenuevo);
         cy.contains('Guardar edición').click()
+
         cy.contains('OK').click()
-        cy.wait(2000)
+        cy.wait(3000)
         cy.contains('Volver').click()
-        cy.contains('td', fertil.lotenuevo.nombrenuevo).should('be.visible')
-        cy.wait(2000)
-        
+        cy.contains('td', fertil.rodeonuevo.nombrenuevo).should('be.visible')
+        cy.wait(3000)
     })
-    it.skip("eliminar lote",()=>{
+    it("eliminar rodeo",()=>{
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.wait(2000)
@@ -66,22 +59,18 @@ describe('lotes', () => {
         cy.wait(2000)
         
     })
-    it("nuevo lote off",()=>{
+    it("nuevo rodeo off",()=>{
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
-        cy.contains('+ Nuevo lote').click()
+        cy.contains('+ Nuevo rodeo').click()
         cy.wait(1000)
-        //  BLOQUEAR TODA LA RED DESDE ACÁ
-        cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.contains('Volver').click()
-        cy.contains('+ Nuevo lote').click()
-        cy.get("#nombre").type(fertil.lotenuevo.nombre);
+        cy.contains('+ Nuevo rodeo').click()
+        cy.get("#nombre").type(fertil.rodeonuevo.nombre);
         cy.contains('Guardar nuevo').click()
         cy.contains('OK').click()
-        cy.wait(1000)
-        //El lote "lotenuevo" aparece en la tabla con TOTAL = 0
-        cy.contains('td', fertil.lotenuevo.nombre).should('be.visible')
-        cy.wait(2000)
         
+        cy.wait(2000)
     })
+    
 })

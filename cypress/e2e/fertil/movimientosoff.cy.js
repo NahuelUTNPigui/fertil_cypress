@@ -1,5 +1,5 @@
 import fertil from '../../fixtures/fertil.json'
-describe('servicios', () => {
+describe('movimientos', () => {
     beforeEach("ingresa", () => {
         cy.viewport(1536, 960)
         cy.visit("https://test.crecientefertil.com.ar/");
@@ -10,46 +10,30 @@ describe('servicios', () => {
         cy.contains('Ingresar').click()
         cy.wait(4000)
         //cy.get('.scrollbar-thin > .overflow-y-auto > :nth-child(8) > .flex')
-        cy.get('a').contains('Servicios').click()
+        cy.get('a').contains('Movimientos').click()
+        cy.intercept('*').as('online') // Restaura el comportamiento por defecto
         cy.wait(1000)
     })
-    it("nuevo inseminacion", () => {
-        cy.contains('+ Nuevo servicio').click()
+    it("nuevo movimiento", () => {
+        cy.intercept('*').as('online') // Restaura el comportamiento por defecto
+        cy.contains('+ Nuevo movimiento').click()
         cy.wait(2000)
-        cy.get('#tiposervicio').select(1, { force: true })
-        cy.get("#fechainseminacion").click()
-        cy.get('.absolute > :nth-child(3) > :nth-child(3)').click()
-        cy.get('[name="observacion"]').eq(0).type(fertil.servicionuevo.observacion)
+        cy.contains('Categoría').click()
+        cy.get('#cat-select').select(0, { force: true })
+        cy.get('#cat-motivo').select(1, { force: true })
         cy.get('tbody tr').first().find('label').click()
         cy.get('div.border-t.border-cf-border')
             .contains('button', 'Siguiente')
             .click()
         cy.get('.bg-cf-primary')
-            .contains('button', 'Crear servicio')
+            .contains('button', 'Crear movimiento')
             .click()
         cy.wait(1000)
         cy.get('.swal2-confirm').click()
-        cy.wait(2000)
     })
-    it("nuevo servicio", () => {
-        cy.contains('+ Nuevo servicio').click()
-        cy.wait(2000)
-        
-        cy.get("#fechadesde").click()
-        cy.get('.absolute > :nth-child(3) > :nth-child(3)').click()
-        cy.get('[name="observacion"]').eq(0).type(fertil.servicionuevo.observacion)
-        cy.get('tbody tr').first().find('label').click()
-        cy.get('div.border-t.border-cf-border')
-            .contains('button', 'Siguiente')
-            .click()
-        cy.get('.bg-cf-primary')
-            .contains('button', 'Crear servicio')
-            .click()
-        cy.wait(1000)
-        cy.get('.swal2-confirm').click()
-        cy.wait(2000)
-    })
-    it("editar servicio", () => {
+    it("editar movimiento", () => {
+        cy.wait(5000)
+        cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.get('tbody tr').first().within(() => {
             // Busca todos los botones en la última celda (acciones)
             cy.get('td:last-child button')
@@ -57,25 +41,40 @@ describe('servicios', () => {
                 .click()
         })
         cy.wait(1000)
-        cy.get('[name="observacion"]').eq(0).clear()
-        cy.get('[name="observacion"]').eq(0).type(fertil.servicionuevo.observacionnuevo)
-        cy.contains('Guardar cambios').click()
+        cy.contains('Guardar').click()
         cy.get('.swal2-confirm').click()
 
         cy.wait(1000)
-
     })
-    it("eliminar servicio", () => {
+    it("eliminar movimiento", () => {
+        cy.wait(5000)
+        cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.get('tbody tr').first().within(() => {
             // Busca todos los botones en la última celda (acciones)
             cy.get('td:last-child button')
-                .eq(2)
+                .eq(2) 
                 .click()
         })
         cy.wait(1000)
         cy.get('.swal2-confirm').click()
+
         cy.wait(1000)
-        cy.get('.swal2-confirm').click()
+    })
+    it("nuevo movimiento off", () => {
+        cy.wait(5000)
+        cy.intercept('*', { forceNetworkError: true }).as('offline')
+        cy.contains('+ Nuevo movimiento').click()
+        cy.wait(2000)
+        cy.contains('Categoría').click()
+        cy.get('#cat-select').select(0, { force: true })
+        cy.get('#cat-motivo').select(1, { force: true })
+        cy.get('tbody tr').first().find('label').click()
+        cy.get('div.border-t.border-cf-border')
+            .contains('button', 'Siguiente')
+            .click()
+        cy.get('.bg-cf-primary')
+            .contains('button', 'Crear movimiento')
+            .click()
         cy.wait(1000)
         cy.get('.swal2-confirm').click()
     })

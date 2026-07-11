@@ -5,13 +5,25 @@
         "nombre":"lotenuevo",
         "nombrenuevo":"lotenuevo2"
     },
+    "loteoff":{
+        "nombre":"loteoff",
+        "nombrenuevo":"loteoff2"
+    },
     "rodeonuevo":{
         "nombre":"rodeonuevo",
         "nombrenuevo":"rodeonuevo2"
     },
+    "rodeooff":{
+        "nombre":"rodeooff",
+        "nombrenuevo":"rodeooff2"
+    },
     "animalnuevo":{
         "caravana":"anuevo",
         "caravananuevo":"anuevo2"
+    },
+    "animaloff":{
+        "caravana":"anuevooff",
+        "caravananuevo":"anuevooff2"
     },
     "nacimientonuevo":{
         "caravana":"anuevo",
@@ -19,12 +31,27 @@
         "observacion":"observacionnuevo",
         "observacionnuevo":"observacionnuevo2"
     },
+    "nacimientooff":{
+        "caravana":"anuevooff",
+        "madre":"zh",
+        "observacion":"observacionoff",
+        "observacionnuevo":"observacionoff2"
+    },
     "observacionnuevo":{
         "caravana":"zh",
         "observacion":"observacionnuevo",
         "observacionnuevo":"observacionnuevo2"
     },
+    "observacionoff":{
+        "caravana":"zh",
+        "observacion":"observacionoff",
+        "observacionnuevo":"observacionoff2"
+    },
     "pesajenuevo":{
+        "peso":"100",
+        "pesonuevo":"200"
+    },
+    "pesajeoff":{
         "peso":"100",
         "pesonuevo":"200"
     },
@@ -32,12 +59,32 @@
         "observacion":"observacionnuevo",
         "observacionnuevo":"observacionnuevo2"
     },
+    "serviciooff":{
+        "observacion":"observacionoff",
+        "observacionnuevo":"observacionoff"
+    },
     "tactonuevo":{
         "observacion":"observacionnuevo",
         "observacionnuevo":"observacionnuevo2"
     },
+    "tactooff":{
+        "observacion":"observacionoff",
+        "observacionnuevo":"observacionoff2"
+    },
     "tratamientonuevo":{
+        "tipo":"aaaaaa",
         "observacion":"observacionnuevo",
         "observacionnuevo":"observacionnuevo2"
+    },
+    "tratamientooff":{
+        "tipo":"aaaaaaoff",
+        "observacion":"observacionoff",
+        "observacionnuevo":"observacionoff2"
+    },
+    "establecimiento":{
+        "nombre":"test"
+    },
+    "establecimientooff":{
+        "nombre":"testoff"
     }
 }
