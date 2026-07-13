@@ -16,7 +16,7 @@ describe('lotes', () => {
         
     })
     //este es un test para agregar lotes si no tenes ninguno, util para hacer pruebas de corrido
-    it.skip("nuevo lote",()=>{
+    it("nuevo lote",()=>{
         cy.intercept('*').as('online') 
 
         cy.contains('+ Nuevo lote').click()
@@ -32,7 +32,7 @@ describe('lotes', () => {
         cy.wait(2000)
         
     })
-    it.skip("editar lote",()=>{
+    it("editar lote",()=>{
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.get('tbody tr').first().find('td:nth-child(4)')
@@ -52,7 +52,7 @@ describe('lotes', () => {
         cy.wait(2000)
         
     })
-    it.skip("eliminar lote",()=>{
+    it("eliminar lote",()=>{
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.wait(2000)

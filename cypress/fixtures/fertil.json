@@ -1,6 +1,10 @@
 {
     "fertilname":"usoparaelcolegio+999@gmail.com",
     "fertilpas":"fertil12345",
+    "userpowerless":{
+        "fertilname":"usoparaelcolegio+1001@gmail.com",
+        "fertilpas":"fertil12345"
+    },
     "lotenuevo":{
         "nombre":"lotenuevo",
         "nombrenuevo":"lotenuevo2"
@@ -19,7 +23,11 @@
     },
     "animalnuevo":{
         "caravana":"anuevo",
-        "caravananuevo":"anuevo2"
+        "caravananuevo":"anuevo2",
+        "caravanapeso":"anuevopeso",
+        "caravananacimiento":"anuevonacimiento",
+        "peso":"250",
+        "madre":"zh"
     },
     "animaloff":{
         "caravana":"anuevooff",

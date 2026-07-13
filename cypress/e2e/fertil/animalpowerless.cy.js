@@ -5,8 +5,8 @@ describe('animales', () => {
         cy.visit("https://test.crecientefertil.com.ar/");
         cy.get('.mt-5').click()
 
-        cy.get('#username').type(fertil.fertilname)
-        cy.get('#password').type(fertil.fertilpas)
+        cy.get('#username').type(fertil.userpowerless.fertilname)
+        cy.get('#password').type(fertil.userpowerless.fertilpas)
         cy.contains('Ingresar').click()
         cy.wait(4000)
         //cy.get('.scrollbar-thin > .overflow-y-auto > :nth-child(8) > .flex')
@@ -22,6 +22,40 @@ describe('animales', () => {
             cy.contains('Guardar').click()
         })
 
+        cy.contains('OK').click()
+        cy.wait(1000)
+
+
+    })
+    it("nuevo animal con peso", () => {
+        cy.contains('+ Nuevo animal').click()
+        cy.wait(2000)
+        cy.get('#caravana').type(fertil.animalnuevo.caravanapeso)
+        cy.wait(2000)
+        cy.get('#peso').type(fertil.animalnuevo.peso)
+        cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+            cy.contains('Guardar').click()
+        })
+        cy.contains('OK').click()
+        cy.wait(1000)
+
+
+    })
+    it("nuevo animal con nacimiento", () => {
+        cy.contains('+ Nuevo animal').click()
+        cy.wait(2000)
+        cy.get('#caravana').type(fertil.animalnuevo.caravananacimiento)
+        cy.wait(2000)
+        cy.get("#fechanacimiento").click()
+        cy.get('.absolute > :nth-child(3) > :nth-child(3)').click()
+
+        cy.get(".grid.grid-cols-2.gap-3").eq(6).within(() => {
+            cy.get('.w-full').first().type(fertil.animalnuevo.madre)
+            cy.get('.text-start > .block').click()
+        })
+        cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+            cy.contains('Guardar').click()
+        })
         cy.contains('OK').click()
         cy.wait(1000)
 
@@ -91,7 +125,7 @@ describe('animales', () => {
         cy.wait(1500)
         cy.get('.swal2-confirm').click()
     })
-    it("dar baja venta", () => {
+    it.skip("dar baja venta", () => {
         //Este codigo sirve cuando haces los test continuos si estas probando comentar
         //INICIO GUARDAR
         cy.contains('+ Nuevo animal').click()

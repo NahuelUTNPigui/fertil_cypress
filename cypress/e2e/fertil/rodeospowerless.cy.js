@@ -1,33 +1,29 @@
 import fertil from '../../fixtures/fertil.json'
 
-describe('lotes', () => {
+describe('rodeos', () => {
     beforeEach(() => {
         cy.viewport(1536, 960)
         cy.visit("https://test.crecientefertil.com.ar/");
         cy.get('.mt-5').click()
         
-        cy.get('#username').type(fertil.fertilname)
-        cy.get('#password').type(fertil.fertilpas)
+        cy.get('#username').type(fertil.userpowerless.fertilname)
+        cy.get('#password').type(fertil.userpowerless.fertilpas)
         cy.contains('Ingresar').click()
         cy.wait(1000)
-        cy.contains('Lotes').click()
+        cy.contains('Rodeos').click()
     })
-    it("nuevo lote",()=>{
+    it("nuevo rodeo",()=>{
         
-        cy.contains('+ Nuevo lote').click()
+        cy.contains('+ Nuevo rodeo').click()
         cy.wait(1000)
         cy.contains('Volver').click()
-        cy.contains('+ Nuevo lote').click()
-        cy.get("#nombre").type(fertil.lotenuevo.nombre);
-        cy.contains('Guardar nuevo').click()
-        cy.contains('OK').click()
-        cy.wait(1000)
-        //El lote "lotenuevo" aparece en la tabla con TOTAL = 0
-        cy.contains('td', fertil.lotenuevo.nombre).should('be.visible')
-        cy.wait(2000)
-        
+        cy.contains('+ Nuevo rodeo').click()
+        cy.once('uncaught:exception', (err) => {
+            if (err.message.includes('SIN_PERMISO')) return false
+            return true // Cualquier otro error falla el test normalmente
+        })
     })
-    it("editar lote",()=>{
+    it("editar rodeo",()=>{
         
         // Busca el botón del lápiz dentro de la primera fila
         //cy.get('tbody tr').first().find('button[aria-label="Editar"], button[title="Editar"]').click()
@@ -38,19 +34,12 @@ describe('lotes', () => {
             cy.get('button').eq(1).click()
             
         })
-        cy.wait(2000)
-        cy.get("#nombre").clear();
-        cy.get("#nombre").type(fertil.lotenuevo.nombrenuevo);
-        
-        cy.contains('Guardar edición').click()
-        cy.contains('OK').click()
-        cy.wait(2000)
-        cy.contains('Volver').click()
-        cy.contains('td', fertil.lotenuevo.nombrenuevo).should('be.visible')
-        cy.wait(2000)
-        
+        cy.once('uncaught:exception', (err) => {
+            if (err.message.includes('SIN_PERMISO')) return false
+            return true // Cualquier otro error falla el test normalmente
+        })
     })
-    it("eliminar lote",()=>{
+    it("eliminar rodeo",()=>{
         
         // Busca el botón del lápiz dentro de la primera fila
         //cy.get('tbody tr').first().find('button[aria-label="Editar"], button[title="Editar"]').click()
@@ -61,9 +50,11 @@ describe('lotes', () => {
             cy.get('button').eq(2).click()
             
         })
-        cy.get('.swal2-confirm').click()
-        cy.wait(2000)
-        cy.get('.swal2-confirm').click()
+        cy.once('uncaught:exception', (err) => {
+            if (err.message.includes('SIN_PERMISO')) return false
+            return true // Cualquier otro error falla el test normalmente
+        })
+        
     })
     
 })
