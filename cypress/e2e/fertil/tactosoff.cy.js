@@ -17,7 +17,25 @@ describe('tactos', () => {
         cy.contains('+ Nuevo tacto').click()
         cy.wait(2000)
         cy.get("#fecha").click()
-        cy.get('.absolute > :nth-child(3) > :nth-child(3)').click()
+        cy.get('.absolute > :nth-child(3) > :nth-child(4)').click()
+        cy.get('[name="observacion"]').eq(0).type(fertil.tactonuevo.observacion)
+        cy.get('#tipotacto').select(0, { force: true })
+        cy.get('tbody tr').first().find('label').click()
+        cy.get('div.border-t.border-cf-border')
+            .contains('button', 'Siguiente')
+            .click()
+        cy.get('.bg-cf-primary')
+            .contains('button', 'Crear tacto')
+            .click()
+        cy.wait(1000)
+        cy.get('.swal2-confirm').click()
+        cy.wait(2000)
+    })
+    it("nuevo tacto", () => {
+        cy.contains('+ Nuevo tacto').click()
+        cy.wait(2000)
+        cy.get("#fecha").click()
+        cy.get('.absolute > :nth-child(3) > :nth-child(5)').click()
         cy.get('[name="observacion"]').eq(0).type(fertil.tactonuevo.observacion)
         cy.get('#tipotacto').select(0, { force: true })
         cy.get('tbody tr').first().find('label').click()
@@ -32,7 +50,7 @@ describe('tactos', () => {
         cy.wait(2000)
     })
     it("editar tacto", () => {
-        cy.wait(5000)
+        //cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.get('tbody tr').first().within(() => {
             // Busca todos los botones en la última celda (acciones)
@@ -54,10 +72,11 @@ describe('tactos', () => {
         cy.wait(1000)
 
     })
+    //El problema de este tacto 
     it("eliminar tacto", () => {
-        cy.wait(5000)
+        //cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
-        cy.get('tbody tr').first().within(() => {
+        cy.get('tbody tr').eq(1).within(() => {
             // Busca todos los botones en la última celda (acciones)
             cy.get('td:last-child button')
                 .eq(2)
@@ -69,8 +88,8 @@ describe('tactos', () => {
         cy.get('.swal2-confirm').click()
         cy.wait(1000)
     })
-    it("nuevo tacto", () => {
-        cy.wait(5000)
+    it("nuevo tacto offline", () => {
+        //cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.contains('+ Nuevo tacto').click()
         cy.wait(2000)

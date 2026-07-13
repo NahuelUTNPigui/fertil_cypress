@@ -14,6 +14,7 @@ Proyecto que permite hacer pruebas automatizadas de la aplicacion creciente fert
 ### Para que la suite de test se comporte como lo esperado. Estan debe ser las condiciones
 * El usuario debe existir
 * El usuario tiene un establecimiento
+* El establecimiento tiene un colaborador sin permisos.
 * No hay eventos registrados.
 * Hay un solo lote (zl) y un solo rodeo (zr).
 * Solo hay 4 animales zh en el lote zl  y zh1 (hembras) y zm en el rodeo zr y zm1(machos)
