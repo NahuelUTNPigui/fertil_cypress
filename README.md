@@ -7,6 +7,7 @@ Aplicacion que permite hacer pruebas automatizadas
 * Si consideras que tu codigo debería funcionar pero el no se ejecuta correctamente entonces es probables que tengas que agregar la instruccion cy.wait(1000) ya que hay cierto delay cuando se crea una pantalla y los elementos no se hallan visibles
 * En cada achivo que se debe agregar el beforeEach es importante escribir la instruccion "cy.viewport(1536, 960)" ya que la aplicacion anda mejor en modo escritorio
 ## Comandos
+* pnpm install para installar el programa
 * pnpm run cy:open para abrir cypress elegir y chrome que se configure
 * pnpm run cy:chrome para abrir cypress con la configuracion correcta
 ## Sobre los datos
