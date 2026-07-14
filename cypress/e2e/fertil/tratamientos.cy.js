@@ -52,6 +52,7 @@ describe('tratamientos', () => {
             .first() // La primera opción real de la lista
             .click()
         cy.get('tbody tr').first().find('label').click()
+        cy.get('tbody tr').eq(2).find('label').click()
         cy.get('div.border-t.border-cf-border')
             .contains('button', 'Siguiente')
             .click()

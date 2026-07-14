@@ -47,11 +47,11 @@ describe('animales', () => {
         cy.get('#caravana').type(fertil.animalnuevo.caravananacimiento)
         cy.wait(2000)
         cy.get("#fechanacimiento").click()
-        cy.get('.absolute > :nth-child(3) > :nth-child(3)').click()
+        cy.get('.absolute > :nth-child(3) > :nth-child(6)').click()
 
         cy.get(".grid.grid-cols-2.gap-3").eq(6).within(() => {
             cy.get('.w-full').first().type(fertil.animalnuevo.madre)
-            cy.get('.text-start > .block').click()
+            cy.get('.border > :nth-child(1) > .block').click()
         })
         cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
             cy.contains('Guardar').click()
@@ -78,6 +78,55 @@ describe('animales', () => {
         cy.wait(1000)
 
     })
+    it.skip("editar animal elegir todos los select", () => {
+        //INICIO GUARDAR
+        //cy.contains('+ Nuevo animal').click()
+        //cy.wait(4000)
+        //cy.get('#caravana').type(fertil.animalnuevo.caravanaeditar)
+        //cy.wait(2000)
+        //cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+        //    cy.contains('Guardar').click()
+        //})
+        //cy.contains('OK').click()
+        //cy.wait(2000)
+        //FIN GUARDAR
+        cy.get('tbody tr').first().within(() => {
+            // Busca todos los botones en la última celda (acciones)
+            cy.get('td:last-child button')
+                .eq(1) // El índice 1 es el segundo botón = Pencil
+                .click()
+        })
+        cy.wait(2000)
+        cy.get('#caravana').clear()
+        cy.get('#caravana').type(fertil.animalnuevo.caravananuevo)
+
+        cy.get('label').contains('Categoría').next('select')
+            .select(1)
+        
+
+        cy.get('label').contains('Rodeo').next('select')
+            .select(1)
+        
+
+        cy.get('label').contains('Lote').next('select')
+            .select(1)
+        
+        cy.get('grid grid-cols-2 gap-3').eq(3).within(()=>{
+            cy.get('.form-control').eq(0).within(()=>{
+                cy.find('select').select(1) 
+            })
+        })
+        
+        cy.wait(2000)
+
+        //cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+        //    cy.contains('Guardar cambios').click()
+        //})
+        //cy.contains('OK').click()
+        //cy.wait(1000)
+
+    })
+    
     it("eliminar animal", () => {
         cy.get('tbody tr').first().within(() => {
             // Busca todos los botones en la última celda (acciones)
@@ -125,7 +174,7 @@ describe('animales', () => {
         cy.wait(1500)
         cy.get('.swal2-confirm').click()
     })
-    it.skip("dar baja venta", () => {
+    it("dar baja venta", () => {
         //Este codigo sirve cuando haces los test continuos si estas probando comentar
         //INICIO GUARDAR
         cy.contains('+ Nuevo animal').click()
@@ -158,5 +207,5 @@ describe('animales', () => {
         cy.wait(1500)
         cy.get('.swal2-confirm').click()
     })
-
+    
 })

@@ -22,7 +22,10 @@
         "nombrenuevo":"rodeooff2"
     },
     "animalnuevo":{
+        "caravanaeditar":"aeditar",
         "caravana":"anuevo",
+        "caravanaoff1":"aoff1",
+        "caravanaoff2":"aoff2",
         "caravananuevo":"anuevo2",
         "caravanapeso":"anuevopeso",
         "caravananacimiento":"anuevonacimiento",
@@ -81,6 +84,7 @@
     },
     "tratamientonuevo":{
         "tipo":"aaaaaa",
+        "tipooff":"aaaoff",
         "observacion":"observacionnuevo",
         "observacionnuevo":"observacionnuevo2"
     },

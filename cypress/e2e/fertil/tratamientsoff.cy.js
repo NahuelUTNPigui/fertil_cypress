@@ -13,12 +13,39 @@ describe('tratamientos', () => {
         cy.get('a').contains('Tratamientos').click()
         cy.wait(1000)
     })
-    
     it("nuevo tratamiento", () => {
         cy.contains('+ Nuevo tratamiento').click()
         cy.wait(2000)
 
         cy.get('[name="observacion"]').eq(0).type(fertil.tratamientonuevo.observacion)
+        cy.get("#fecha").click()
+        cy.get('.absolute > :nth-child(3) > :nth-child(3)').click()
+        cy.contains('button', 'Todos').click()
+        
+        // 2. Esperar a que aparezca la lista desplegable (ul)
+        cy.get('ul.max-h-40').should('be.visible')
+
+        // 3. Seleccionar la PRIMERA opción disponible (excluyendo "+ Nuevo tipo")
+        cy.get('ul.max-h-40 li button')
+            .first() // La primera opción real de la lista
+            .click()
+        cy.get('tbody tr').first().find('label').click()
+        cy.get('div.border-t.border-cf-border')
+            .contains('button', 'Siguiente')
+            .click()
+        cy.get('.bg-cf-primary')
+            .contains('button', 'Crear tratamiento')
+            .click()
+        cy.wait(1000)
+        cy.get('.swal2-confirm').click()
+        cy.wait(2000)
+    })
+    it("nuevo tratamiento", () => {
+        cy.contains('+ Nuevo tratamiento').click()
+        cy.wait(2000)
+
+        cy.get("#fecha").click()
+        cy.get('.absolute > :nth-child(3) > :nth-child(4)').click()
         cy.contains('button', 'Todos').click()
         // 2. Esperar a que aparezca la lista desplegable (ul)
         cy.get('ul.max-h-40').should('be.visible')
@@ -64,7 +91,7 @@ describe('tratamientos', () => {
     it("eliminar tratamiento", () => {
         cy.wait(1000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
-        cy.get('tbody tr').first().within(() => {
+        cy.get('tbody tr').eq(1).within(() => {
             // Busca todos los botones en la última celda (acciones)
             cy.get('td:last-child button')
                 .eq(2)
@@ -92,6 +119,33 @@ describe('tratamientos', () => {
             .first() // La primera opción real de la lista
             .click()
         cy.get('tbody tr').first().find('label').click()
+        cy.get('div.border-t.border-cf-border')
+            .contains('button', 'Siguiente')
+            .click()
+        cy.get('.bg-cf-primary')
+            .contains('button', 'Crear tratamiento')
+            .click()
+        cy.wait(1000)
+        cy.get('.swal2-confirm').click()
+        cy.wait(2000)
+    })
+    it("nuevo tratamiento con nuevo tipo", () => {
+        cy.wait(1000)
+        cy.intercept('*', { forceNetworkError: true }).as('offline')
+        cy.contains('+ Nuevo tratamiento').click()
+        cy.wait(1000)
+
+        cy.get('[name="observacion"]').eq(0).type(fertil.tratamientonuevo.observacion)
+        
+        cy.get('tbody tr').first().find('label').click()
+        cy.wait(1000)
+        cy.get('button[title="Gestionar tipos"]').eq(0).click()
+        cy.wait(1000)
+        cy.get('.border-t > .flex > .flex-1').type(fertil.tratamientonuevo.tipooff  )
+        cy.get('.flex > .btn').click()
+        cy.get('.swal2-confirm').click()
+        cy.contains('button', '✕')
+            .click()
         cy.get('div.border-t.border-cf-border')
             .contains('button', 'Siguiente')
             .click()

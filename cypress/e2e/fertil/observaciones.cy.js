@@ -20,7 +20,9 @@ describe('observaciones', () => {
         cy.get('.flex-col').eq(1).within(() => {
             // Dentro form el primer input
             cy.get('.w-full').first().type(fertil.observacionnuevo.caravana)
-            cy.get('.text-start > .block').click()
+            cy.wait(1000)
+            //cy.get('.text-start > .block').first().click()
+            cy.get('.border > :nth-child(1) > .block').click()
             cy.get('#fecha').click()
             cy.get(':nth-child(3) > :nth-child(3)').click()
             cy.get('[name="observacion"]').type(fertil.observacionnuevo.observacion)
@@ -61,6 +63,7 @@ describe('observaciones', () => {
             })
         cy.get('.swal2-confirm').click()
         cy.wait(2000)
+        cy.get('.swal2-confirm').click()
     })
 
 })

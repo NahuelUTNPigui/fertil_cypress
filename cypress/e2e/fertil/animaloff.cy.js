@@ -13,10 +13,38 @@ describe('animales', () => {
         cy.get('a').contains('Animales').click()
         cy.wait(1000)
     })
-    it("nuevo animal", () => {
+    it.skip("nuevo animal", () => {
         cy.contains('+ Nuevo animal').click()
         cy.wait(2000)
         cy.get('#caravana').type(fertil.animalnuevo.caravana)
+        cy.wait(2000)
+        cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+            cy.contains('Guardar').click()
+        })
+
+        cy.contains('OK').click()
+        cy.wait(1000)
+
+
+    })
+    it.skip("nuevo animal", () => {
+        cy.contains('+ Nuevo animal').click()
+        cy.wait(2000)
+        cy.get('#caravana').type(fertil.animalnuevo.caravanaoff1)
+        cy.wait(2000)
+        cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+            cy.contains('Guardar').click()
+        })
+
+        cy.contains('OK').click()
+        cy.wait(1000)
+
+
+    })
+    it("nuevo animal", () => {
+        cy.contains('+ Nuevo animal').click()
+        cy.wait(2000)
+        cy.get('#caravana').type(fertil.animalnuevo.caravanaoff2)
         cy.wait(2000)
         cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
             cy.contains('Guardar').click()
@@ -48,7 +76,7 @@ describe('animales', () => {
     })
     //Cuando tienes varios animales usar
     it.skip("eliminar animal", () => {
-        cy.get('tbody tr').first().within(() => {
+        cy.get('tbody tr').eq(1).within(() => {
             // Busca todos los botones en la última celda (acciones)
             cy.get('td:last-child button')
                 .eq(2) // El índice 2 es el tercer botón = Eliminar
@@ -136,6 +164,46 @@ describe('animales', () => {
         cy.wait(2000)
         cy.get('#caravana').type(fertil.animalnuevo.caravana)
         cy.wait(2000)
+        cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+            cy.contains('Guardar').click()
+        })
+
+        cy.contains('OK').click()
+        cy.wait(1000)
+
+
+    })
+    it("nuevo animal con peso", () => {
+        cy.wait(5000)
+        cy.intercept('*', { forceNetworkError: true }).as('offline')
+        cy.contains('+ Nuevo animal').click()
+        cy.wait(2000)
+        cy.get('#caravana').type(fertil.animalnuevo.caravana)
+        cy.wait(2000)
+        cy.get('#peso').type(fertil.animalnuevo.peso)
+        cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+            cy.contains('Guardar').click()
+        })
+
+        cy.contains('OK').click()
+        cy.wait(1000)
+
+
+    })
+    it("nuevo animal con nacimiento", () => {
+        cy.wait(5000)
+        cy.intercept('*', { forceNetworkError: true }).as('offline')
+        cy.contains('+ Nuevo animal').click()
+        cy.wait(2000)
+        cy.get('#caravana').type(fertil.animalnuevo.caravana)
+        cy.wait(2000)
+        cy.get("#fechanacimiento").click()
+        cy.get('.absolute > :nth-child(3) > :nth-child(6)').click()
+
+        cy.get(".grid.grid-cols-2.gap-3").eq(6).within(() => {
+            cy.get('.w-full').first().type(fertil.animalnuevo.madre)
+            cy.get('.border > :nth-child(1) > .block').click()
+        })
         cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
             cy.contains('Guardar').click()
         })
