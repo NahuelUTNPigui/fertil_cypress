@@ -21,7 +21,8 @@ describe('nacimientos', () => {
         cy.get(':nth-child(3) > :nth-child(3)').click()
         cy.get(".grid.grid-cols-2.gap-3").eq(3).within(() => {
             cy.get('.w-full').first().type(fertil.nacimientonuevo.madre)
-            cy.get('.text-start > .block').click()
+            cy.get('.mt-0 > .border > :nth-child(1)').click()
+            
         })
         cy.get('[name="observacion"]').eq(0).type(fertil.nacimientonuevo.observacion)
         cy.contains('Guardar nuevo').click()
@@ -38,7 +39,7 @@ describe('nacimientos', () => {
         cy.get(':nth-child(3) > :nth-child(3)').eq(1).click()
         cy.get(".grid.grid-cols-2.gap-3").eq(3).within(() => {
             cy.get('.w-full').first().type(fertil.nacimientonuevo.madre)
-            cy.get('.text-start > .block').click()
+            cy.get('.mt-0 > .border > :nth-child(1)').click()
         })
         cy.get('[name="observacion"]').eq(0).type(fertil.nacimientonuevo.observacion)
 

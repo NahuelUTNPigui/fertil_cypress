@@ -1,102 +1,106 @@
 {
-    "fertilname":"usoparaelcolegio+999@gmail.com",
-    "fertilpas":"fertil12345",
-    "userpowerless":{
-        "fertilname":"usoparaelcolegio+1001@gmail.com",
-        "fertilpas":"fertil12345"
+    "fertilname": "usoparaelcolegio+999@gmail.com",
+    "fertilpas": "fertil12345",
+    "useroff": {
+        "fertilname": "usoparaelcolegio+2001@gmail.com",
+        "fertilpas": "fertil12345"
     },
-    "lotenuevo":{
-        "nombre":"lotenuevo",
-        "nombrenuevo":"lotenuevo2"
+    "userpowerless": {
+        "fertilname": "usoparaelcolegio+1001@gmail.com",
+        "fertilpas": "fertil12345"
     },
-    "loteoff":{
-        "nombre":"loteoff",
-        "nombrenuevo":"loteoff2"
+    "lotenuevo": {
+        "nombre": "lotenuevo",
+        "nombrenuevo": "lotenuevo2"
     },
-    "rodeonuevo":{
-        "nombre":"rodeonuevo",
-        "nombrenuevo":"rodeonuevo2"
+    "loteoff": {
+        "nombre": "loteoff",
+        "nombrenuevo": "loteoff2"
     },
-    "rodeooff":{
-        "nombre":"rodeooff",
-        "nombrenuevo":"rodeooff2"
+    "rodeonuevo": {
+        "nombre": "rodeonuevo",
+        "nombrenuevo": "rodeonuevo2"
     },
-    "animalnuevo":{
-        "caravanaeditar":"aeditar",
-        "caravana":"anuevo",
-        "caravanaoff1":"aoff1",
-        "caravanaoff2":"aoff2",
-        "caravananuevo":"anuevo2",
-        "caravanapeso":"anuevopeso",
-        "caravananacimiento":"anuevonacimiento",
-        "peso":"250",
-        "madre":"zh"
+    "rodeooff": {
+        "nombre": "rodeooff",
+        "nombrenuevo": "rodeooff2"
     },
-    "animaloff":{
-        "caravana":"anuevooff",
-        "caravananuevo":"anuevooff2"
+    "animalnuevo": {
+        "caravanaeditar": "aeditar",
+        "caravana": "anuevo",
+        "caravanaoff1": "aoff1",
+        "caravanaoff2": "aoff2",
+        "caravananuevo": "anuevo2",
+        "caravanapeso": "anuevopeso",
+        "caravananacimiento": "anuevonacimiento",
+        "peso": "250",
+        "madre": "zh"
     },
-    "nacimientonuevo":{
-        "caravana":"anuevo",
-        "madre":"zh",
-        "observacion":"observacionnuevo",
-        "observacionnuevo":"observacionnuevo2"
+    "animaloff": {
+        "caravana": "anuevooff",
+        "caravananuevo": "anuevooff2"
     },
-    "nacimientooff":{
-        "caravana":"anuevooff",
-        "madre":"zh",
-        "observacion":"observacionoff",
-        "observacionnuevo":"observacionoff2"
+    "nacimientonuevo": {
+        "caravana": "anuevo",
+        "madre": "zh",
+        "observacion": "observacionnuevo",
+        "observacionnuevo": "observacionnuevo2"
     },
-    "observacionnuevo":{
-        "caravana":"zh",
-        "observacion":"observacionnuevo",
-        "observacionnuevo":"observacionnuevo2"
+    "nacimientooff": {
+        "caravana": "anuevooff",
+        "madre": "zh",
+        "observacion": "observacionoff",
+        "observacionnuevo": "observacionoff2"
     },
-    "observacionoff":{
-        "caravana":"zh",
-        "observacion":"observacionoff",
-        "observacionnuevo":"observacionoff2"
+    "observacionnuevo": {
+        "caravana": "zh",
+        "observacion": "observacionnuevo",
+        "observacionnuevo": "observacionnuevo2"
     },
-    "pesajenuevo":{
-        "peso":"100",
-        "pesonuevo":"200"
+    "observacionoff": {
+        "caravana": "zh",
+        "observacion": "observacionoff",
+        "observacionnuevo": "observacionoff2"
     },
-    "pesajeoff":{
-        "peso":"100",
-        "pesonuevo":"200"
+    "pesajenuevo": {
+        "peso": "100",
+        "pesonuevo": "200"
     },
-    "servicionuevo":{
-        "observacion":"observacionnuevo",
-        "observacionnuevo":"observacionnuevo2"
+    "pesajeoff": {
+        "peso": "100",
+        "pesonuevo": "200"
     },
-    "serviciooff":{
-        "observacion":"observacionoff",
-        "observacionnuevo":"observacionoff"
+    "servicionuevo": {
+        "observacion": "observacionnuevo",
+        "observacionnuevo": "observacionnuevo2"
     },
-    "tactonuevo":{
-        "observacion":"observacionnuevo",
-        "observacionnuevo":"observacionnuevo2"
+    "serviciooff": {
+        "observacion": "observacionoff",
+        "observacionnuevo": "observacionoff"
     },
-    "tactooff":{
-        "observacion":"observacionoff",
-        "observacionnuevo":"observacionoff2"
+    "tactonuevo": {
+        "observacion": "observacionnuevo",
+        "observacionnuevo": "observacionnuevo2"
     },
-    "tratamientonuevo":{
-        "tipo":"aaaaaa",
-        "tipooff":"aaaoff",
-        "observacion":"observacionnuevo",
-        "observacionnuevo":"observacionnuevo2"
+    "tactooff": {
+        "observacion": "observacionoff",
+        "observacionnuevo": "observacionoff2"
     },
-    "tratamientooff":{
-        "tipo":"aaaaaaoff",
-        "observacion":"observacionoff",
-        "observacionnuevo":"observacionoff2"
+    "tratamientonuevo": {
+        "tipo": "aaaaaa",
+        "tipooff": "aaaoff",
+        "observacion": "observacionnuevo",
+        "observacionnuevo": "observacionnuevo2"
     },
-    "establecimiento":{
-        "nombre":"test"
+    "tratamientooff": {
+        "tipo": "aaaaaaoff",
+        "observacion": "observacionoff",
+        "observacionnuevo": "observacionoff2"
     },
-    "establecimientooff":{
-        "nombre":"testoff"
+    "establecimiento": {
+        "nombre": "test"
+    },
+    "establecimientooff": {
+        "nombre": "testoff"
     }
 }

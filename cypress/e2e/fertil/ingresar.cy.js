@@ -15,5 +15,16 @@ describe('ingresar fertil', () => {
         cy.wait(700)
         //cy.contains('Buen').should('have.text','Buen'.trim())
     })
+    it("inicio",()=>{
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('.mt-5').click()
+        
+        cy.get('#username').type(fertil.fertilname)
+        cy.get('#password').type(fertil.fertilpas)
+        cy.contains('Ingresar').click()
+        cy.wait(700)
+        cy.get('a').contains('Inicio').click()
+        cy.wait(1000)
+    })
     
 })

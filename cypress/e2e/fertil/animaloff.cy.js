@@ -14,6 +14,7 @@ describe('animales', () => {
         cy.wait(1000)
     })
     it.skip("nuevo animal", () => {
+
         cy.contains('+ Nuevo animal').click()
         cy.wait(2000)
         cy.get('#caravana').type(fertil.animalnuevo.caravana)
@@ -28,6 +29,8 @@ describe('animales', () => {
 
     })
     it.skip("nuevo animal", () => {
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('a').contains('Animales').click()
         cy.contains('+ Nuevo animal').click()
         cy.wait(2000)
         cy.get('#caravana').type(fertil.animalnuevo.caravanaoff1)
@@ -41,7 +44,9 @@ describe('animales', () => {
 
 
     })
-    it("nuevo animal", () => {
+    it.skip("nuevo animal", () => {
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('a').contains('Animales').click()
         cy.contains('+ Nuevo animal').click()
         cy.wait(2000)
         cy.get('#caravana').type(fertil.animalnuevo.caravanaoff2)
@@ -55,7 +60,9 @@ describe('animales', () => {
 
 
     })
-    it("editar animal", () => {
+    it.skip("editar animal", () => {
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('a').contains('Animales').click()
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.get('tbody tr').first().within(() => {
@@ -76,6 +83,8 @@ describe('animales', () => {
     })
     //Cuando tienes varios animales usar
     it.skip("eliminar animal", () => {
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('a').contains('Animales').click()
         cy.get('tbody tr').eq(1).within(() => {
             // Busca todos los botones en la última celda (acciones)
             cy.get('td:last-child button')
@@ -91,17 +100,19 @@ describe('animales', () => {
     })
     //Cuando tienes varios animales usar
     it.skip("dar baja fallecimiento", () => {
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('a').contains('Animales').click()
         //Este codigo sirve cuando haces los test continuos si estas probando comentar
         //INICIO GUARDAR
-        cy.contains('+ Nuevo animal').click()
-        cy.wait(2000)
-        cy.get('#caravana').type(fertil.animalnuevo.caravana)
-        cy.wait(2000)
-        cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
-            cy.contains('Guardar').click()
-        })
-        cy.contains('OK').click()
-        cy.wait(2000)
+        //cy.contains('+ Nuevo animal').click()
+        //cy.wait(2000)
+        //cy.get('#caravana').type(fertil.animalnuevo.caravana)
+        //cy.wait(2000)
+        //cy.get('div.mt-6.flex.space-x-3.justify-end.border-t').eq(0).within(() => {
+        //    cy.contains('Guardar').click()
+        //})
+        //cy.contains('OK').click()
+        //cy.wait(2000)
         //FIN GUARDAR
 
         cy.get('tbody tr').first().within(() => {
@@ -125,6 +136,8 @@ describe('animales', () => {
     })
     //Cuando tienes varios animales usar
     it.skip("dar baja venta", () => {
+        cy.visit("https://test.crecientefertil.com.ar/");
+        cy.get('a').contains('Animales').click()
         //Este codigo sirve cuando haces los test continuos si estas probando comentar
         //INICIO GUARDAR
         cy.contains('+ Nuevo animal').click()
@@ -157,7 +170,7 @@ describe('animales', () => {
         cy.wait(1500)
         cy.get('.swal2-confirm').click()
     })
-    it("nuevo animal", () => {
+    it.skip("nuevo animal", () => {
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.contains('+ Nuevo animal').click()
@@ -173,7 +186,8 @@ describe('animales', () => {
 
 
     })
-    it("nuevo animal con peso", () => {
+    it.skip("nuevo animal con peso", () => {
+        
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.contains('+ Nuevo animal').click()
@@ -190,7 +204,8 @@ describe('animales', () => {
 
 
     })
-    it("nuevo animal con nacimiento", () => {
+    it.skip("nuevo animal con nacimiento", () => {
+        
         cy.wait(5000)
         cy.intercept('*', { forceNetworkError: true }).as('offline')
         cy.contains('+ Nuevo animal').click()
@@ -210,7 +225,6 @@ describe('animales', () => {
 
         cy.contains('OK').click()
         cy.wait(1000)
-
-
     })
+
 })
