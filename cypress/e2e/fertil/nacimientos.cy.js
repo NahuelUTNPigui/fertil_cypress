@@ -24,6 +24,7 @@ describe('nacimientos', () => {
             cy.get('.mt-0 > .border > :nth-child(1)').click()
             
         })
+        cy.get('#peso').type(fertil.pesajenuevo.peso)
         cy.get('[name="observacion"]').eq(0).type(fertil.nacimientonuevo.observacion)
         cy.contains('Guardar nuevo').click()
         cy.contains('OK').click()
